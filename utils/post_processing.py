@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from utils.labels import imagenet_labels
+from utils.cv.labels import imagenet_labels
 
 
 def initialize_colors(colors_to_generate=100):
@@ -72,8 +72,8 @@ def get_imagenet_names(ids_array):
     if type(ids_list) is list:
         string_with_names = ""
         for id in ids_list:
-            string_with_names += imagenet_labels[id] + ", "
+            string_with_names += "[" + imagenet_labels[id] + "], "
         string_with_names = string_with_names[:-2]
     else:
-        string_with_names = imagenet_labels[ids_list]
+        string_with_names = "[" + imagenet_labels[ids_list] + "]"
     return string_with_names
